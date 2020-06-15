@@ -3,8 +3,6 @@
 
 namespace App\Security\Voters;
 
-
-use App\Entity\Brand;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
