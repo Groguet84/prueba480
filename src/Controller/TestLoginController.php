@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -8,12 +9,13 @@ use Symfony\Component\Routing\Annotation\Route;
  * Class TestLoginController
  * @package App\Controller
  */
-class TestLoginController {
+class TestLoginController extends AbstractController {
 
     /**
      * @Route("/admin/testLogin")
      */
     public function adminTestLogin() {
-        return new Response('<h1>LOGIN OK <a href="/logout">LOGOUT</a></h1>');
+        $username = $this->get('security.token_storage')->getToken()->getUser()->getUsername();
+        return new Response("<h1>Hola $username (<a href=\"/logout\">logout</a>)</h1>");
     }
 }
